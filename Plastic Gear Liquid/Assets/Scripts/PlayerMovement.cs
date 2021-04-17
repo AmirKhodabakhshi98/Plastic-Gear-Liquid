@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
         processInputs();
     }
 
+    //
     private void FixedUpdate()
     {
         move();
@@ -34,6 +35,15 @@ public class PlayerMovement : MonoBehaviour
 
         moveDirection = new Vector2(moveX, moveY).normalized;
 
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Coins"))
+        {
+            Destroy(collision.gameObject);
+        }
+        
     }
 
     void move()
