@@ -19,16 +19,16 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        processInputs();
+        ProcessInputs();
     }
 
     //
     private void FixedUpdate()
     {
-        move();
+        Move();
     }
 
-    void processInputs()
+    void ProcessInputs()
     {
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
         moveDirection = new Vector2(moveX, moveY).normalized;
 
     }
-
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Coins"))
@@ -46,9 +46,10 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
-    void move()
+    void Move()
     {
         rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
+      
     }
   
 }
