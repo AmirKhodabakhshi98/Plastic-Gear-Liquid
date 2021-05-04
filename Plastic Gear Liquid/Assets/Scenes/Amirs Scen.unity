@@ -2558,6 +2558,25 @@ MonoBehaviour:
   FirePoint: {fileID: 565288340}
   bulletPrefab: {fileID: 291282755332850115, guid: 497dfac2eab9ab74997fcf8885c4caae, type: 3}
   bulletForce: 10
+--- !u!95 &484989623595952452
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 484989623595952446}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 380ef4ef37e4fc742990278c3df1807b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &3448976062862101183
 PrefabInstance:
   m_ObjectHideFlags: 0
