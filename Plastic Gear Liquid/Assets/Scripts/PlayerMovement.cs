@@ -8,7 +8,9 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed;
     public Rigidbody2D rb;
     private Vector2 moveDirection;
-
+    
+    public Animator animator; 
+    
 
 
     // Update is called once per frame
@@ -29,6 +31,10 @@ public class PlayerMovement : MonoBehaviour
         float moveY = Input.GetAxisRaw("Vertical");
 
         moveDirection = new Vector2(moveX, moveY).normalized;
+
+        animator.SetFloat("Horizontal", moveDirection.x);
+        animator.SetFloat("Vertical", moveDirection.y);
+        animator.SetFloat("Speed", moveDirection.sqrMagnitude); 
 
         //rotate player character based on input
         if(moveDirection != Vector2.zero)

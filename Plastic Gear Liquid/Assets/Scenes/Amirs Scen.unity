@@ -2513,6 +2513,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 484989623894556335, guid: 8d4d7d34ba933e649bdef89758f17d06, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 484989623595952452}
+    - target: {fileID: 484989623894556335, guid: 8d4d7d34ba933e649bdef89758f17d06, type: 3}
       propertyPath: moveSpeed
       value: 5
       objectReference: {fileID: 0}
