@@ -21,6 +21,9 @@ public class FireBullet : MonoBehaviour
     {
         GameObject bullet = Instantiate(bulletPrefab, FirePoint.position, FirePoint.rotation); //spawn bullet
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>(); // get its rigidbody
-        rb.AddForce(FirePoint.up * bulletForce, ForceMode2D.Impulse); //makes bullet move instnatly
+          rb.AddForce(FirePoint.right * bulletForce, ForceMode2D.Impulse); //makes bullet move instnatly
+         //  rb.velocity = new Vector2(1 * bulletForce, 0); alternativ implementring
+
     }
+
 }

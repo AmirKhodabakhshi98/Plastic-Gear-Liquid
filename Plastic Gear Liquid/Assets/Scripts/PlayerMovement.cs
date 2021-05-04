@@ -9,12 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D rb;
     private Vector2 moveDirection;
 
-    // Start is called before the first frame update
-    
-    void Start()
-    {
-        
-    }
+
 
     // Update is called once per frame
     void Update()
@@ -30,10 +25,17 @@ public class PlayerMovement : MonoBehaviour
 
     void ProcessInputs()
     {
-        float moveX = Input.GetAxisRaw("Horizontal");
+        float moveX = Input.GetAxisRaw("Horizontal"); //hämtar user input
         float moveY = Input.GetAxisRaw("Vertical");
 
         moveDirection = new Vector2(moveX, moveY).normalized;
+
+        //rotate player character based on input
+        if(moveDirection != Vector2.zero)
+        {
+            float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        }
 
     }
     
@@ -41,14 +43,14 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Coins"))
         {
-            Destroy(collision.gameObject);
+            Destroy(collision.gameObject); //destroy collectibles when player collects/touches
         }
         
     }
 
     void Move()
     {
-        rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
+        rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed); 
       
     }
   

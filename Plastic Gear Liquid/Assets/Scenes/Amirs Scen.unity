@@ -1243,7 +1243,7 @@ GameObject:
   - component: {fileID: 1181756242}
   m_Layer: 0
   m_Name: EnemyFolder
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1538,11 +1538,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3448976062952893635, guid: a4e23d81387a5dd4a9eef8e421f850f7, type: 3}
       propertyPath: m_LocalScale.x
-      value: 28.259892
+      value: 23.273445
       objectReference: {fileID: 0}
     - target: {fileID: 3448976062952893635, guid: a4e23d81387a5dd4a9eef8e421f850f7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.776
+      value: 10.268
       objectReference: {fileID: 0}
     - target: {fileID: 3448976062952893635, guid: a4e23d81387a5dd4a9eef8e421f850f7, type: 3}
       propertyPath: m_LocalPosition.y
