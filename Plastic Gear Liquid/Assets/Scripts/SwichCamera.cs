@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class SwichCamera : MonoBehaviour
 {
-    public Camera camera;
-    public Camera camera2;
+    public Camera mainCamera;
+    public Camera highCamera;
     // Start is called before the first frame update
     void Start()
     {
-        camera.enabled = true;
-        camera2.enabled = false;
+        mainCamera.enabled = true;
+        highCamera.enabled = false;
     }
 
     // Update is called once per frame
@@ -20,8 +20,8 @@ public class SwichCamera : MonoBehaviour
         //This will toggle the enabled state of the two cameras between true and false each time
         if (Input.GetKeyUp(KeyCode.Return))
         {
-            camera.enabled = !camera.enabled;
-            camera2.enabled = !camera2.enabled;
+            mainCamera.enabled = !mainCamera.enabled;
+            highCamera.enabled = !highCamera.enabled;
 
         }
     }

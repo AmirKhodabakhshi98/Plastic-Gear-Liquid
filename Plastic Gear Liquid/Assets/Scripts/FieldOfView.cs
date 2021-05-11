@@ -36,9 +36,6 @@ public class FieldOfView : MonoBehaviour
     }
 
 
-
-
-
     private void FieldOfViewCheck()
     {
         //check for player within a radius around enemy.       
@@ -57,8 +54,10 @@ public class FieldOfView : MonoBehaviour
             {
                 float distanceToTarget = Vector2.Distance(transform.position, target.position); //distance of vector between enemy/player
 
-                if (!Physics2D.Raycast(transform.right, directionToTarget, distanceToTarget))
+                if (Physics2D.Raycast(transform.right, directionToTarget, distanceToTarget))
                 {
+      
+
                     canSeePlayer = true;
                     aiDestinationSetter.enabled = true;
                     aiPath.enabled = true;
