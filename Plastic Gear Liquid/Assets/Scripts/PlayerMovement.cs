@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D rb;
     Vector2 moveDirection;
 
-    public Animator animator; 
+  //  public Animator animator; 
 
 
     // Update is called once per frame
@@ -31,17 +31,14 @@ public class PlayerMovement : MonoBehaviour
 
         moveDirection = new Vector2(moveX, moveY).normalized;
 
-        animator.SetFloat("Horizontal", moveDirection.x);
-        animator.SetFloat("Vertical", moveDirection.y);
-        animator.SetFloat("Speed", moveDirection.sqrMagnitude);
-
-
 
         //rotate player character based on input
         if (moveDirection != Vector2.zero)
         {
             float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+                transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+      //      transform.rotation = Quaternion.AngleAxis( 10, Vector3.forward);
+
         }
 
     }
