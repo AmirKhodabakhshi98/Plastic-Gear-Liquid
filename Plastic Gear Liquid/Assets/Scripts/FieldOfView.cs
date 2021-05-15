@@ -41,31 +41,31 @@ public class FieldOfView : MonoBehaviour
         //check for player within a radius around enemy.       
         Collider2D rangeChecks = Physics2D.OverlapCircle(transform.position, radius, targetMask);
 
+
         //if we found something
         if (rangeChecks != null)
         {
             Transform target = rangeChecks.transform; //save player position
 
             //direction vector from enemy to player.
-            Vector2 directionToTarget = (target.position - transform.position).normalized;
+            Vector2 directionToTarget = (rangeChecks.transform.position - transform.position).normalized;
 
 
             if (Vector2.Angle(transform.right, directionToTarget) < angle / 2) //angle between enemy facing forward and player
             {
                 float distanceToTarget = Vector2.Distance(transform.position, target.position); //distance of vector between enemy/player
 
-                RaycastHit2D hit = Physics2D.Raycast(transform.right, directionToTarget, distanceToTarget, targetMask);
 
 
           
-                Debug.Log(hit.collider);
+                Debug.DrawRay(transform.position, directionToTarget*distanceToTarget , Color.red, 10000.0f);
 
-                
-                    if (hit.collider != null && hit.collider.tag == "Player")   //if raycast hit something and this something is the player..
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, directionToTarget, distanceToTarget);
+
+                Debug.Log(hit.transform.gameObject.tag);
+
+                if (hit && hit.transform.CompareTag("Player"))   //if raycast hits something and that collission is w/ playertag aka player
                 {
-                     
-      
-
                     canSeePlayer = true;
                     aiDestinationSetter.enabled = true;
                     aiPath.enabled = true;
