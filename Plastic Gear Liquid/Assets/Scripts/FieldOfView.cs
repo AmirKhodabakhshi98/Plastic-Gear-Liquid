@@ -14,16 +14,16 @@ public class FieldOfView : MonoBehaviour
     public bool canSeePlayer;
     public Pathfinding.AIDestinationSetter aiDestinationSetter;
     public Pathfinding.AIPath aiPath;
-    
+
 
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
-        playerRef = GameObject.FindGameObjectWithTag("Player");
- 
+
+        //   playerRef = GameObject.FindGameObjectWithTag("Player");
+
 
         aiDestinationSetter.enabled = false;
         aiPath.enabled = false;
@@ -54,8 +54,16 @@ public class FieldOfView : MonoBehaviour
             {
                 float distanceToTarget = Vector2.Distance(transform.position, target.position); //distance of vector between enemy/player
 
-                if (Physics2D.Raycast(transform.right, directionToTarget, distanceToTarget))
+                RaycastHit2D hit = Physics2D.Raycast(transform.right, directionToTarget, distanceToTarget, targetMask);
+
+
+          
+                Debug.Log(hit.collider);
+
+                
+                    if (hit.collider != null && hit.collider.tag == "Player")   //if raycast hit something and this something is the player..
                 {
+                     
       
 
                     canSeePlayer = true;
@@ -67,20 +75,24 @@ public class FieldOfView : MonoBehaviour
             }
             else canSeePlayer = false;
         }
-        //if enemy could previously see player, but now player moves out of range(thus first if- fails), we want enemy to not see player anymore. i.e player moves out of range.
-        //kanske ta bort så fiende alltid följer.
-        /*
-        else if (canSeePlayer)
-        {
-            canSeePlayer = false;
+                
+
+
+
+                //if enemy could previously see player, but now player moves out of range(thus first if- fails), we want enemy to not see player anymore. i.e player moves out of range.
+                //kanske ta bort så fiende alltid följer.
+                /*
+                else if (canSeePlayer)
+                {
+                    canSeePlayer = false;
+                }
+                */
+
+
+
+
+
+
+            }
+
         }
-        */
-
-
-        
-        
-
-
-    }
-
-}
