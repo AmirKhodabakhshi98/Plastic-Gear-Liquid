@@ -12,8 +12,11 @@ public class FieldOfView : MonoBehaviour
     public LayerMask targetMask;
     public LayerMask obstructionMask;
     public bool canSeePlayer;
+   // public bool enemyActive;
     public Pathfinding.AIDestinationSetter aiDestinationSetter;
     public Pathfinding.AIPath aiPath;
+    Vector2 directionToTarget;
+    private bool touchingPlayer;
 
 
 
@@ -22,19 +25,86 @@ public class FieldOfView : MonoBehaviour
     void Start()
     {
 
-        //   playerRef = GameObject.FindGameObjectWithTag("Player");
+        StartCoroutine("Reset");
 
 
         aiDestinationSetter.enabled = false;
         aiPath.enabled = false;
+        touchingPlayer = false;
+        canSeePlayer = false;
 
     }
 
-    void Update()
+    void FixedUpdate()
     {
         FieldOfViewCheck();
+        if (canSeePlayer)
+        {
+            RotateTowardsPlayer(); //activate enemy rotate method after he starts chase
+        }
+
     }
 
+    private IEnumerator Reset()
+    {
+        if (touchingPlayer)
+        {
+            HealthManager.instance.ChangeHealth(); //damage player
+        }
+
+        yield return new WaitForSeconds(2);
+
+        StartCoroutine("Reset");
+
+
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Player")) //if enemy hits player
+        {
+            if (canSeePlayer) //and can see player aka is actively chasing
+            {
+
+                touchingPlayer = true;
+            }
+        }
+    }
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        
+            if (collision.collider.CompareTag("Player")) //if enemy hits player
+            {
+                if (canSeePlayer) //and can see player aka is actively chasing
+                {
+
+       //         touchingPlayer = true;
+              //  StartCoroutine("Reset");
+            }
+                else
+                {
+                EnemyActivate(); // if player bumps into enemy while enemy is sleeping, it should activate
+            }   
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Player"))
+        {
+            touchingPlayer = false;
+        }
+    }
+
+
+    //method to make the enemy face the player
+    private void RotateTowardsPlayer()
+    {
+        float angle = Mathf.Atan2(directionToTarget.y, directionToTarget.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+    }
 
     private void FieldOfViewCheck()
     {
@@ -48,47 +118,35 @@ public class FieldOfView : MonoBehaviour
             Transform target = rangeChecks.transform; //save player position
 
             //direction vector from enemy to player.
-            Vector2 directionToTarget = (rangeChecks.transform.position - transform.position).normalized;
+            directionToTarget = (rangeChecks.transform.position - transform.position).normalized;
 
 
             if (Vector2.Angle(transform.right, directionToTarget) < angle / 2) //angle between enemy facing forward and player
             {
                 float distanceToTarget = Vector2.Distance(transform.position, target.position); //distance of vector between enemy/player
-
-
-
           
-                Debug.DrawRay(transform.position, directionToTarget*distanceToTarget , Color.red, 10000.0f);
+            //    Debug.DrawRay(transform.position, directionToTarget*distanceToTarget , Color.red, 10000.0f);
 
                 RaycastHit2D hit = Physics2D.Raycast(transform.position, directionToTarget, distanceToTarget);
 
-                Debug.Log(hit.transform.gameObject.tag);
+             //   Debug.Log(hit.transform.gameObject.tag);
 
                 if (hit && hit.transform.CompareTag("Player"))   //if raycast hits something and that collission is w/ playertag aka player
                 {
+                    EnemyActivate();
+                    Console.WriteLine("SEE PLAYER");
+                }
+            }
+
+        }
+                
+            }
+            private void EnemyActivate()
+            {
                     canSeePlayer = true;
                     aiDestinationSetter.enabled = true;
                     aiPath.enabled = true;
-                    Console.WriteLine("SEE PLAYER");
-                }
-                else canSeePlayer = false;
             }
-            else canSeePlayer = false;
         }
-                
 
 
-
-                //if enemy could previously see player, but now player moves out of range(thus first if- fails), we want enemy to not see player anymore. i.e player moves out of range.
-                //kanske ta bort så fiende alltid följer.
-                /*
-                else if (canSeePlayer)
-                {
-                    canSeePlayer = false;
-                }
-                */
-
-
-            }
-
-        }
