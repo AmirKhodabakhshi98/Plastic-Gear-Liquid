@@ -299,7 +299,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   centerOffsetCompatibility: NaN
   orientation: 1
-  enableRotation: 0
+  enableRotation: 1
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
   rotationSpeed: 360
@@ -514,7 +514,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   centerOffsetCompatibility: NaN
   orientation: 1
-  enableRotation: 0
+  enableRotation: 1
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
   rotationSpeed: 360
@@ -729,7 +729,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   centerOffsetCompatibility: NaN
   orientation: 1
-  enableRotation: 0
+  enableRotation: 1
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
   rotationSpeed: 360
@@ -6548,7 +6548,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   centerOffsetCompatibility: NaN
   orientation: 1
-  enableRotation: 0
+  enableRotation: 1
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
   rotationSpeed: 360
@@ -7922,7 +7922,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   centerOffsetCompatibility: NaN
   orientation: 1
-  enableRotation: 0
+  enableRotation: 1
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
   rotationSpeed: 360
@@ -8553,15 +8553,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 484989623894556332, guid: 8d4d7d34ba933e649bdef89758f17d06, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.12
+      value: -5.91
       objectReference: {fileID: 0}
     - target: {fileID: 484989623894556332, guid: 8d4d7d34ba933e649bdef89758f17d06, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -33.29
+      value: -3.06
       objectReference: {fileID: 0}
     - target: {fileID: 484989623894556332, guid: 8d4d7d34ba933e649bdef89758f17d06, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 484989623894556332, guid: 8d4d7d34ba933e649bdef89758f17d06, type: 3}
       propertyPath: m_LocalRotation.w
