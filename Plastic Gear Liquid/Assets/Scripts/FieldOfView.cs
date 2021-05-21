@@ -89,10 +89,6 @@ public class FieldOfView : MonoBehaviour
                 */
 
 
-
-
-
-
             }
 
         }
