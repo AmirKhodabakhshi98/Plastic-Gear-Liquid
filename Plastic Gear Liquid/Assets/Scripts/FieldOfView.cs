@@ -12,11 +12,11 @@ public class FieldOfView : MonoBehaviour
     public LayerMask targetMask;
     public LayerMask obstructionMask;
     public bool canSeePlayer;
-   // public bool enemyActive;
+
     public Pathfinding.AIDestinationSetter aiDestinationSetter;
     public Pathfinding.AIPath aiPath;
     Vector2 directionToTarget;
-    private bool touchingPlayer;
+
 
 
 
@@ -25,12 +25,10 @@ public class FieldOfView : MonoBehaviour
     void Start()
     {
 
-        StartCoroutine("Reset");
-
 
         aiDestinationSetter.enabled = false;
         aiPath.enabled = false;
-        touchingPlayer = false;
+
         canSeePlayer = false;
 
     }
@@ -47,30 +45,13 @@ public class FieldOfView : MonoBehaviour
 
     private IEnumerator Reset()
     {
-        if (touchingPlayer)
-        {
-            HealthManager.instance.ChangeHealth(); //damage player
-        }
+      
+        HealthManager.instance.ChangeHealth(); //damage player     
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1); //sleep
 
-        StartCoroutine("Reset");
-
-
+        StartCoroutine("Reset"); //start over
     }
-
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        if (collision.collider.CompareTag("Player")) //if enemy hits player
-        {
-            if (canSeePlayer) //and can see player aka is actively chasing
-            {
-
-                touchingPlayer = true;
-            }
-        }
-    }
-
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -79,11 +60,11 @@ public class FieldOfView : MonoBehaviour
             {
                 if (canSeePlayer) //and can see player aka is actively chasing
                 {
+     //               HealthManager.instance.ChangeHealth(); //damage player
 
-       //         touchingPlayer = true;
-              //  StartCoroutine("Reset");
+                    StartCoroutine("Reset");
             }
-                else
+            else
                 {
                 EnemyActivate(); // if player bumps into enemy while enemy is sleeping, it should activate
             }   
@@ -94,7 +75,7 @@ public class FieldOfView : MonoBehaviour
     {
         if (collision.collider.CompareTag("Player"))
         {
-            touchingPlayer = false;
+            StopAllCoroutines();
         }
     }
 

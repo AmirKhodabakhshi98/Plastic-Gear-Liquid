@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed;
     public Rigidbody2D rb;
     Vector2 moveDirection;
+    public float pushback;
 
   //  public Animator animator; 
 
@@ -42,7 +43,25 @@ public class PlayerMovement : MonoBehaviour
         }
 
     }
-    
+
+
+    /*
+    //push the player back if he hits a zombie. to simulate zombie attacking/pushing the player
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Vector2 playerPosition = new Vector2(this.transform.position.x, this.transform.position.y);
+            Vector2 directionPush = collision.GetContact(0).point - playerPosition;
+
+            directionPush = -directionPush.normalized;
+
+            GetComponent<Rigidbody2D>().AddForce(directionPush * pushback);    
+                
+                }
+    }
+    */
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Coins"))

@@ -7120,7 +7120,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 4
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -8033,7 +8033,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 181162524}
-  damageValue: 1
+  damageValue: 10
 --- !u!4 &1493164024
 Transform:
   m_ObjectHideFlags: 0
@@ -9151,6 +9151,10 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 484989623595952447}
+    - target: {fileID: 484989623894556335, guid: 8d4d7d34ba933e649bdef89758f17d06, type: 3}
+      propertyPath: pushback
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 484989623894556335, guid: 8d4d7d34ba933e649bdef89758f17d06, type: 3}
       propertyPath: moveSpeed
       value: 5
