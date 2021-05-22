@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed;
     public Rigidbody2D rb;
     Vector2 moveDirection;
-    public float pushback;
+  //  public float pushback;
 
   //  public Animator animator; 
 
