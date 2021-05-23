@@ -9,6 +9,9 @@ public class ScoreManager : MonoBehaviour
     public static ScoreManager instance;
     public TextMeshProUGUI text;
     int score;
+    public int winScore;
+    public GameObject restartImage;
+
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +28,11 @@ public class ScoreManager : MonoBehaviour
     {
         score += coinValue;
         text.text = score.ToString();
+        if(score >= winScore)
+        {
+            restartImage.GetComponent<GameOverScreen>().Setup(score);
+
+        }
     }
 
    
