@@ -11,6 +11,14 @@ public class GameOverScreen : MonoBehaviour
    public void Setup(int score)
     {
         gameObject.SetActive(true);
-        pointsText.text = score.ToString() + " POINTS"; 
+        pointsText.text = score.ToString() + " POINTS";
+        pauseGame(); 
     }
+
+    public void pauseGame()
+    {
+        Time.timeScale = 0; 
+    }
+
+   
 }
