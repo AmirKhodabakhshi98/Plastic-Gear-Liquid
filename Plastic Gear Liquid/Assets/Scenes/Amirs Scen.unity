@@ -7794,13 +7794,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1040950264}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1040950266}
+        m_TargetAssemblyTypeName: Restart, Assembly-CSharp
+        m_MethodName: RestartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -8915,7 +8915,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 141.19998, y: -66.79999}
+  m_AnchoredPosition: {x: -25, y: -36}
   m_SizeDelta: {x: 751.42993, y: 284.20996}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1751026281
@@ -9302,6 +9302,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 1562119835}
   winScore: 4
+  restartImage: {fileID: 1751026279}
 --- !u!4 &2013928497
 Transform:
   m_ObjectHideFlags: 0

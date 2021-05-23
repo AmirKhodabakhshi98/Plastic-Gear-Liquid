@@ -31,7 +31,6 @@ public class ScoreManager : MonoBehaviour
         if(score >= winScore)
         {
             restartImage.GetComponent<GameOverScreen>().Setup(score);
-
         }
     }
 
