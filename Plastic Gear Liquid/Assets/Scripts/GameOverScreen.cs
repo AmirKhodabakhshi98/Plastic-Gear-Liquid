@@ -7,7 +7,7 @@ public class GameOverScreen : MonoBehaviour
 {
     public Text pointsText; 
 
-
+    //method to enable end game screen
    public void Setup(int score)
     {
         gameObject.SetActive(true);

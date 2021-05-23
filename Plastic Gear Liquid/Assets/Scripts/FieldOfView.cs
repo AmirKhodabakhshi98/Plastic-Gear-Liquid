@@ -46,7 +46,7 @@ public class FieldOfView : MonoBehaviour
     private IEnumerator Reset()
     {
       
-        HealthManager.instance.ChangeHealth(); //damage player     
+        ScoreManager.instance.ChangeHealth(); //damage player     
 
         yield return new WaitForSeconds(1); //sleep
 
