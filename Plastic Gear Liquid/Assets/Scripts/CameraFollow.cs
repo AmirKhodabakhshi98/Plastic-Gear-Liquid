@@ -19,5 +19,12 @@ public class CameraFollow : MonoBehaviour
         transform.position = targetPosition;
 
     }
+    public void GameOver()
+    {
+        int sco = score.playerScore();
+        gameOver.Setup(sco);
+    }
 
+    public GameOverScreen gameOver;
+    public ScoreManager score; 
 }

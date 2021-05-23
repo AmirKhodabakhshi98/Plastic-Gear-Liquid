@@ -27,4 +27,9 @@ public class ScoreManager : MonoBehaviour
         text.text = score.ToString();
     }
 
+   
+    public int playerScore()
+    {
+        return score; 
+    }
 }
