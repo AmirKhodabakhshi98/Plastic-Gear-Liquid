@@ -20,8 +20,8 @@ public class SwichCamera : MonoBehaviour
         //This will toggle the enabled state of the two cameras between true and false each time
         if (Input.GetKeyUp(KeyCode.Return))
         {
-            mainCamera.enabled = !mainCamera.enabled;
-            highCamera.enabled = !highCamera.enabled;
+      //      mainCamera.enabled = !mainCamera.enabled;
+      //      highCamera.enabled = !highCamera.enabled;
 
         }
     }

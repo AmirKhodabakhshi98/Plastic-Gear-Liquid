@@ -49,7 +49,7 @@ public class ScoreManager : MonoBehaviour
     public void ChangeScore(int coinValue)
     {
         score += coinValue;
-        coinText.text = score.ToString();
+        coinText.text = score + "/" + winScore;
         if(score >= winScore)
         {
             restartImage.GetComponent<GameOverScreen>().Setup(score);
